@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:healthy_better/login_screen.dart';
 import 'package:healthy_better/register_screen.dart';
+import 'package:healthy_better/settings.dart';
+import 'package:healthy_better/goals.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: RegisterScreen(),
+      home: Goals(),
     );
   }
 }
