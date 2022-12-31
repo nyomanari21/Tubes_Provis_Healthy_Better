@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:healthy_better/login_screen.dart';
-import 'package:healthy_better/register_screen.dart';
-import 'package:healthy_better/settings.dart';
-import 'package:healthy_better/goals.dart';
+import 'package:healthy_better/view/login_screen.dart';
+import 'package:healthy_better/view/register_screen.dart';
+import 'package:healthy_better/view/settings.dart';
+import 'package:healthy_better/view/goals.dart';
+import 'package:healthy_better/view/about_us.dart';
 
 void main() {
   runApp(const MyApp());
