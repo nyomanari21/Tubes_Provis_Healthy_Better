@@ -63,34 +63,70 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               color: Colors.white,
             ),
+
             // My Account
-            ListTile(
-              title: const Text("My Account"),
-              onTap: () {/*kosong*/},
+            Container(
+              margin: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(width: 1, color: Colors.grey),
+              ),
+              child: ListTile(
+                title: const Text("My Account"),
+                onTap: () {/*kosong*/},
+              ),
             ),
 
             // Edit Profile
-            ListTile(
-              title: const Text("Edit Profile"),
-              onTap: () {/*kosong*/},
+            Container(
+              margin: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(width: 1, color: Colors.grey),
+              ),
+              child: ListTile(
+                title: const Text("Edit Profile"),
+                onTap: () {/*kosong*/},
+              ),
             ),
 
             // My Foods
-            ListTile(
-              title: const Text("My Foods"),
-              onTap: () {/*kosong*/},
+            Container(
+              margin: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(width: 1, color: Colors.grey),
+              ),
+              child: ListTile(
+                title: const Text("My Foods"),
+                onTap: () {/*kosong*/},
+              ),
             ),
 
             // About Us
-            ListTile(
-              title: const Text("About Us"),
-              onTap: () {/*kosong*/},
+            Container(
+              margin: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(width: 1, color: Colors.grey),
+              ),
+              child: ListTile(
+                title: const Text("About Us"),
+                onTap: () {/*kosong*/},
+              ),
             ),
 
             // Logout
-            ListTile(
-              title: const Text("Logout"),
-              onTap: () {/*kosong*/},
+            Container(
+              margin: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(width: 1, color: Colors.grey),
+              ),
+              child: ListTile(
+                title: const Text("Logout"),
+                onTap: () {/*kosong*/},
+              ),
             ),
           ],
         ),
