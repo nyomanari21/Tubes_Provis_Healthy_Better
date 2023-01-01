@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "589377575403",
+    "project_id": "healthy-better",
+    "storage_bucket": "healthy-better.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589377575403:android:bc88acdd83d81752ce61ae",
+        "android_client_info": {
+          "package_name": "com.example.healthy_better"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "589377575403-169pe2rn1pb5l7nmgnln2rcq7m34adp8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOT3cqxMdEPoW890KElQL73lG28AR-UFw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "589377575403-169pe2rn1pb5l7nmgnln2rcq7m34adp8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
