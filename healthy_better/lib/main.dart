@@ -10,11 +10,19 @@ import 'package:healthy_better/view/home_screen.dart';
 import 'package:healthy_better/view/input_calories.dart';
 import 'package:healthy_better/view/profile.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
+
+//void main() async {
+//  WidgetsFlutterBinding.ensureInitialized();
+//  await Firebase.initializeApp(
+//    options: DefaultFirebaseOptions.currentPlatform,
+//  );
+//  runApp(MyApp());
+//}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -27,7 +35,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Profile(),
+      home: RegisterScreen(),
     );
   }
 }
