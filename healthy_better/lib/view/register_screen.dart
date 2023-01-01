@@ -104,39 +104,40 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   // Date of Birth
                   Container(
-                      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                      decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(25),
-                          border: Border.all()),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Date of Birth'),
-                        style: TextStyle(fontSize: 15),
-                        controller: contDoB,
-                        readOnly: true,
-                        // Control date picker
-                        onTap: () async {
-                          DateTime? pickedDate = await showDatePicker(
-                              context: context,
-                              initialDate: DateTime.now(), //get today's date
-                              firstDate: DateTime(
-                                  1900), //DateTime.now() - not to allow to choose before today.
-                              lastDate: DateTime(2101));
-                          if (pickedDate != null) {
-                            setState(() {
-                              String formattedDate =
-                                  DateFormat('yyyy-MM-dd').format(pickedDate);
-                              //You can format date as per your need
-                              contDoB.text = formattedDate;
-                            });
-                          } else {
-                            print("Date not selected");
-                          }
-                        },
-                      )),
+                    margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(25),
+                        border: Border.all()),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Date of Birth'),
+                      style: TextStyle(fontSize: 15),
+                      controller: contDoB,
+                      readOnly: true,
+                      // Control date picker
+                      onTap: () async {
+                        DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(), //get today's date
+                            firstDate: DateTime(
+                                1900), //DateTime.now() - not to allow to choose before today.
+                            lastDate: DateTime(2101));
+                        if (pickedDate != null) {
+                          setState(() {
+                            String formattedDate =
+                                DateFormat('yyyy-MM-dd').format(pickedDate);
+                            //You can format date as per your need
+                            contDoB.text = formattedDate;
+                          });
+                        } else {
+                          print("Date not selected");
+                        }
+                      },
+                    )
+                  ),
                 ],
               ),
             ),

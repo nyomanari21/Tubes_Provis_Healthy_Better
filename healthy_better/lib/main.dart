@@ -6,6 +6,9 @@ import 'package:healthy_better/view/register_screen.dart';
 import 'package:healthy_better/view/settings.dart';
 import 'package:healthy_better/view/goals.dart';
 import 'package:healthy_better/view/about_us.dart';
+import 'package:healthy_better/view/home_screen.dart';
+import 'package:healthy_better/view/input_calories.dart';
+import 'package:healthy_better/view/profile.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: RegisterScreen(),
+      home: Profile(),
     );
   }
 }
