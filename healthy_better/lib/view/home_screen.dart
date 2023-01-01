@@ -8,7 +8,25 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int idx = 0;
+
+  // event untuk ganti halaman drawer
+  void gantiItem(int index) {
+    setState(() {
+      idx = index;
+    });
+  }
+
+  // list bottom navigation bar
+  static const List<Widget> bottomNav = [
+    // const LaporMedali(),
+    // const HomePage(),
+    // const Pengaturan(),
+    // Navigator.of(context).push(MaterialPageRoute(builder: (context) {}));
+  ];
+
   String nama = "Nyoman Ari";
+  String email = "demo@emai.com";
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +34,69 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text("Home Screen"),
       ),
+      // Drawer
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            // Drawer header
+            Container(
+              child: DrawerHeader(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Photo
+                    Container(
+                      margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          "http://medialengka.com/profile.jpg",
+                        ),
+                        maxRadius: 45,
+                      ),
+                    ),
+                    // Name
+                    Text(nama, style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+                    // Email
+                    Text(email, style: TextStyle(fontSize: 10, color: Colors.grey),),
+                  ],
+                )
+              ),
+              color: Colors.white,
+            ),
+            // My Account
+            ListTile(
+              title: const Text("My Account"),
+              onTap: () {/*kosong*/},
+            ),
+
+            // Edit Profile
+            ListTile(
+              title: const Text("Edit Profile"),
+              onTap: () {/*kosong*/},
+            ),
+
+            // My Foods
+            ListTile(
+              title: const Text("My Foods"),
+              onTap: () {/*kosong*/},
+            ),
+
+            // About Us
+            ListTile(
+              title: const Text("About Us"),
+              onTap: () {/*kosong*/},
+            ),
+
+            // Logout
+            ListTile(
+              title: const Text("Logout"),
+              onTap: () {/*kosong*/},
+            ),
+          ],
+        ),
+      ),
+
+      // Body
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

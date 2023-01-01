@@ -9,6 +9,7 @@ import 'package:healthy_better/view/about_us.dart';
 import 'package:healthy_better/view/home_screen.dart';
 import 'package:healthy_better/view/input_calories.dart';
 import 'package:healthy_better/view/profile.dart';
+import 'package:healthy_better/view/bottom_navigation.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,11 +32,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: RegisterScreen(),
+      home: BottomNavigation(),
     );
   }
 }
