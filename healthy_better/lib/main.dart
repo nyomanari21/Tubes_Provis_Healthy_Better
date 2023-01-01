@@ -1,4 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:healthy_better/firebase_options.dart';
 import 'package:healthy_better/view/login_screen.dart';
 import 'package:healthy_better/view/register_screen.dart';
 import 'package:healthy_better/view/settings.dart';
@@ -6,6 +8,8 @@ import 'package:healthy_better/view/goals.dart';
 import 'package:healthy_better/view/about_us.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -20,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(),
+      home: RegisterScreen(),
     );
   }
 }

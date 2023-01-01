@@ -8,7 +8,6 @@ class AboutUs extends StatefulWidget {
 }
 
 class _AboutUsState extends State<AboutUs> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,21 +20,30 @@ class _AboutUsState extends State<AboutUs> {
           children: [
             // Team Name
             Container(
-              child: Text("Team Name", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+              child: Text(
+                "Team Name",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
             ),
             //
             Container(
               width: MediaQuery.of(context).size.width * 0.9,
               child: Text(
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum. Accumsan lacus vel facilisis volutpat est velit egestas dui. Orci phasellus egestas tellus rutrum. Lacus suspendisse faucibus interdum posuere lorem ipsum. Fermentum odio eu feugiat pretium nibh ipsum consequat. In fermentum et sollicitudin ac orci. Tellus mauris a diam maecenas sed enim ut. Sit amet est placerat in egestas erat imperdiet sed euismod. Facilisi morbi tempus iaculis urna id volutpat lacus.",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             // Our Team
             Container(
               child: Column(
                 children: [
-                  Text("Our Team", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                  Text(
+                    "Our Team",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
                   Container(
                     margin: EdgeInsets.all(10),
                     child: Row(
