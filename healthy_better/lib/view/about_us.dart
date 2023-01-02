@@ -12,7 +12,11 @@ class _AboutUsState extends State<AboutUs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Settings"),
+        title: const Text(
+          'About Us',
+          style: TextStyle(color: Colors.black), //<-- SEE HERE
+        ),
+        backgroundColor: Colors.white,
       ),
       body: Center(
         child: Column(
@@ -20,6 +24,7 @@ class _AboutUsState extends State<AboutUs> {
           children: [
             // Team Name
             Container(
+
               child: Text(
                 "Team Name",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -32,12 +37,13 @@ class _AboutUsState extends State<AboutUs> {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum. Accumsan lacus vel facilisis volutpat est velit egestas dui. Orci phasellus egestas tellus rutrum. Lacus suspendisse faucibus interdum posuere lorem ipsum. Fermentum odio eu feugiat pretium nibh ipsum consequat. In fermentum et sollicitudin ac orci. Tellus mauris a diam maecenas sed enim ut. Sit amet est placerat in egestas erat imperdiet sed euismod. Facilisi morbi tempus iaculis urna id volutpat lacus.",
                 style: TextStyle(
                   fontSize: 20,
-                  fontWeight: FontWeight.bold,
                 ),
+                textAlign: TextAlign.center,
               ),
             ),
             // Our Team
             Container(
+              padding: EdgeInsets.only(top:20),
               child: Column(
                 children: [
                   Text(
@@ -45,6 +51,7 @@ class _AboutUsState extends State<AboutUs> {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   Container(
+                    // padding: EdgeInsets.only(top:20),
                     margin: EdgeInsets.all(10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
