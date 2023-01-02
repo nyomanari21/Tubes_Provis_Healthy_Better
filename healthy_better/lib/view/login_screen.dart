@@ -109,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   contEmail, contPass, context);
                         }
                       },
-                      child: Text(login ? 'Login' : 'signup'),
+                      child: Text(login ? 'Login' : 'Signup', style: TextStyle(color: Colors.black),),
                     ),
                   ),
                   Container(
