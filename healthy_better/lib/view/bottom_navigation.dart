@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:healthy_better/view/home_screen.dart';
+import 'package:healthy_better/view/foods_screen.dart';
+import 'package:healthy_better/view/exercise.dart';
+import 'package:healthy_better/view/recipes.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -15,6 +18,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
   // list bottom navigation bar
   static const List<Widget> bottomNav = [
     const HomeScreen(),
+    const FoodsScreen(),
+    const Exercise(),
+    const Recipes(),
     // Navigator.of(context).push(MaterialPageRoute(builder: (context) {}));
   ];
 

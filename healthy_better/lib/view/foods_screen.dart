@@ -19,9 +19,9 @@ class _FoodsScreenState extends State<FoodsScreen> {
       appBar: AppBar(
         title: const Text(
           'Foods',
-          style: TextStyle(color: Colors.black), //<-- SEE HERE
+          style: TextStyle(color: Colors.white), //<-- SEE HERE
         ),
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
       ),
       body: Center(
       child: Column(
