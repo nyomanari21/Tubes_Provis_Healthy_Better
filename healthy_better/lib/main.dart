@@ -15,15 +15,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  if (FirebaseAuth.instance.currentUser?.uid == null) {
-// not logged
-    home:
-    LoginScreen();
-  } else {
-// logged
-    home:
-    BottomNavigation();
-  }
   runApp(const MyApp());
 }
 
@@ -47,7 +38,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BottomNavigation(),
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return BottomNavigation();
+          } else {
+            return LoginScreen();
+          }
+        },
+      ),
     );
   }
 }

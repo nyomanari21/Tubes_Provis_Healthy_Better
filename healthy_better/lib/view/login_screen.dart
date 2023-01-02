@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:healthy_better/view/register_screen.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:healthy_better/services/functions/authFunctions.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -96,17 +98,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                   RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20),
                                       side: BorderSide(color: Colors.black)))),
-                      onPressed: () {
-                        setState(() {
-                          if (_formKey.currentState!.validate()) {
-                            _formKey.currentState!.save();
-                            login
-                                ? AuthServices.signinUser(
-                                    contEmail, contPass, context)
-                                : AuthServices.signupUser(
-                                    contEmail, contPass, context);
-                          }
-                        });
+                      onPressed: () async {
+                        if (_formKey.currentState!.validate()) {
+                          _formKey.currentState!.save();
+                          login
+                              ? AuthServices.signinUser(
+                                  contEmail, contPass, context)
+                              : AuthServices.signupUser(
+                                  contEmail, contPass, context);
+                        }
                       },
                       child: Text(
                         "Login",
@@ -129,6 +129,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {
                         setState(() {
                           // Function Register
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return RegisterScreen();
+                          }));
                         });
                       },
                       child: Text(

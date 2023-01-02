@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:healthy_better/view/about_us.dart';
 import 'package:healthy_better/view/login_screen.dart';
 import 'package:healthy_better/view/profile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -154,10 +155,9 @@ class _HomeScreenState extends State<HomeScreen> {
               child: ListTile(
                 title: const Text("Logout"),
                 onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return LoginScreen();
-                  }));
+                  Future<void> _signOut() async {
+                    await FirebaseAuth.instance.signOut();
+                  }
                 },
               ),
             ),
