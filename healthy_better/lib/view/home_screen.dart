@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:healthy_better/view/about_us.dart';
+import 'package:healthy_better/view/login_screen.dart';
+import 'package:healthy_better/view/profile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -41,26 +44,31 @@ class _HomeScreenState extends State<HomeScreen> {
             // Drawer header
             Container(
               child: DrawerHeader(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Photo
-                    Container(
-                      margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                      child: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                          "http://medialengka.com/profile.jpg",
-                        ),
-                        maxRadius: 45,
+                  child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Photo
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                    child: CircleAvatar(
+                      backgroundImage: NetworkImage(
+                        "http://medialengka.com/profile.jpg",
                       ),
+                      maxRadius: 45,
                     ),
-                    // Name
-                    Text(nama, style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
-                    // Email
-                    Text(email, style: TextStyle(fontSize: 10, color: Colors.grey),),
-                  ],
-                )
-              ),
+                  ),
+                  // Name
+                  Text(
+                    nama,
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                  // Email
+                  Text(
+                    email,
+                    style: TextStyle(fontSize: 10, color: Colors.grey),
+                  ),
+                ],
+              )),
               color: Colors.white,
             ),
 
@@ -73,7 +81,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: ListTile(
                 title: const Text("My Account"),
-                onTap: () {/*kosong*/},
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return Profile();
+                  }));
+                },
               ),
             ),
 
@@ -86,7 +99,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: ListTile(
                 title: const Text("Edit Profile"),
-                onTap: () {/*kosong*/},
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return Profile();
+                  }));
+                },
               ),
             ),
 
@@ -99,7 +117,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: ListTile(
                 title: const Text("My Foods"),
-                onTap: () {/*kosong*/},
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return AboutUs();
+                  }));
+                },
               ),
             ),
 
@@ -112,7 +135,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: ListTile(
                 title: const Text("About Us"),
-                onTap: () {/*kosong*/},
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return AboutUs();
+                  }));
+                },
               ),
             ),
 
@@ -125,7 +153,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: ListTile(
                 title: const Text("Logout"),
-                onTap: () {/*kosong*/},
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return LoginScreen();
+                  }));
+                },
               ),
             ),
           ],
@@ -160,7 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Button Edit Profile
                   IconButton(
                     iconSize: 20,
-                    onPressed: (){
+                    onPressed: () {
                       // Function Edit Profile
                     },
                     icon: Icon(Icons.edit),
@@ -185,8 +218,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Calories", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
-                          Text("Remaining = Goal - Food + Exercise", style: TextStyle(fontSize: 10),)
+                          Text(
+                            "Calories",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15),
+                          ),
+                          Text(
+                            "Remaining = Goal - Food + Exercise",
+                            style: TextStyle(fontSize: 10),
+                          )
                         ],
                       ),
                       // Remaining data
@@ -196,7 +236,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           // Remaining
                           Column(
                             children: [
-                              Text("120", style: TextStyle(fontWeight: FontWeight.bold),),
+                              Text(
+                                "120",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
                               Text("Remaining")
                             ],
                           ),
@@ -209,13 +252,25 @@ class _HomeScreenState extends State<HomeScreen> {
                                 // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   // Icon
-                                  Icon(Icons.flag, color: Colors.blueAccent,),
+                                  Icon(
+                                    Icons.flag,
+                                    color: Colors.blueAccent,
+                                  ),
                                   // Text
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text("Base Goal", style: TextStyle(fontSize: 10),),
-                                      Text("1200", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),)
+                                      Text(
+                                        "Base Goal",
+                                        style: TextStyle(fontSize: 10),
+                                      ),
+                                      Text(
+                                        "1200",
+                                        style: TextStyle(
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.bold),
+                                      )
                                     ],
                                   )
                                 ],
@@ -225,13 +280,25 @@ class _HomeScreenState extends State<HomeScreen> {
                                 // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   // Icon
-                                  Icon(Icons.fastfood, color: Colors.purpleAccent,),
+                                  Icon(
+                                    Icons.fastfood,
+                                    color: Colors.purpleAccent,
+                                  ),
                                   // Text
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text("Food", style: TextStyle(fontSize: 10),),
-                                      Text("1200", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),)
+                                      Text(
+                                        "Food",
+                                        style: TextStyle(fontSize: 10),
+                                      ),
+                                      Text(
+                                        "1200",
+                                        style: TextStyle(
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.bold),
+                                      )
                                     ],
                                   )
                                 ],
@@ -241,13 +308,25 @@ class _HomeScreenState extends State<HomeScreen> {
                                 // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   // Icon
-                                  Icon(Icons.local_fire_department, color: Colors.redAccent,),
+                                  Icon(
+                                    Icons.local_fire_department,
+                                    color: Colors.redAccent,
+                                  ),
                                   // Text
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text("Exercise", style: TextStyle(fontSize: 10),),
-                                      Text("1200", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),)
+                                      Text(
+                                        "Exercise",
+                                        style: TextStyle(fontSize: 10),
+                                      ),
+                                      Text(
+                                        "1200",
+                                        style: TextStyle(
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.bold),
+                                      )
                                     ],
                                   )
                                 ],
@@ -278,8 +357,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Exercise", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
-                          Text("Total Calories", style: TextStyle(fontSize: 10),)
+                          Text(
+                            "Exercise",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15),
+                          ),
+                          Text(
+                            "Total Calories",
+                            style: TextStyle(fontSize: 10),
+                          )
                         ],
                       ),
                       // Remaining data
@@ -289,7 +375,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           // Remaining
                           Column(
                             children: [
-                              Text("120", style: TextStyle(fontWeight: FontWeight.bold),),
+                              Text(
+                                "120",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
                               Text("Remaining")
                             ],
                           ),
@@ -302,13 +391,25 @@ class _HomeScreenState extends State<HomeScreen> {
                                 // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   // Icon
-                                  Icon(Icons.flag, color: Colors.blueAccent,),
+                                  Icon(
+                                    Icons.flag,
+                                    color: Colors.blueAccent,
+                                  ),
                                   // Text
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text("Base Goal", style: TextStyle(fontSize: 10),),
-                                      Text("1200", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),)
+                                      Text(
+                                        "Base Goal",
+                                        style: TextStyle(fontSize: 10),
+                                      ),
+                                      Text(
+                                        "1200",
+                                        style: TextStyle(
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.bold),
+                                      )
                                     ],
                                   )
                                 ],
@@ -318,13 +419,25 @@ class _HomeScreenState extends State<HomeScreen> {
                                 // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   // Icon
-                                  Icon(Icons.fastfood, color: Colors.purpleAccent,),
+                                  Icon(
+                                    Icons.fastfood,
+                                    color: Colors.purpleAccent,
+                                  ),
                                   // Text
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text("Food", style: TextStyle(fontSize: 10),),
-                                      Text("1200", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),)
+                                      Text(
+                                        "Food",
+                                        style: TextStyle(fontSize: 10),
+                                      ),
+                                      Text(
+                                        "1200",
+                                        style: TextStyle(
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.bold),
+                                      )
                                     ],
                                   )
                                 ],
@@ -338,7 +451,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-
           ],
         ),
       ),

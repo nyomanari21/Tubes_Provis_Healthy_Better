@@ -28,7 +28,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: bottomNav[idx],
       // Bottom Navigation Bar
       bottomNavigationBar: BottomNavigationBar(
@@ -36,11 +35,31 @@ class _BottomNavigationState extends State<BottomNavigation> {
         currentIndex: idx,
         selectedItemColor: Colors.black,
         onTap: onItemTap,
-        items: const<BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home_outlined, color: Colors.grey,), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.fastfood_outlined, color: Colors.grey,), label: " Food"),
-          BottomNavigationBarItem(icon: Icon(Icons.sports_martial_arts_outlined, color: Colors.grey,), label: " Plans"),
-          BottomNavigationBarItem(icon: Icon(Icons.file_present_outlined, color: Colors.grey,), label: " Recipes"),
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home_outlined,
+                color: Colors.grey,
+              ),
+              label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.fastfood_outlined,
+                color: Colors.grey,
+              ),
+              label: " Food"),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.sports_martial_arts_outlined,
+                color: Colors.grey,
+              ),
+              label: " Plans"),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.file_present_outlined,
+                color: Colors.grey,
+              ),
+              label: " Recipes"),
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:healthy_better/services/functions/authFunctions.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -9,8 +10,12 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController contEmail = new TextEditingController();
-  TextEditingController contPass = new TextEditingController();
+  String contEmail = '';
+  String contPass = '';
+
+  bool login = false;
+
+  final _formKey = GlobalKey<FormState>();
 
   FirebaseAuth auth = FirebaseAuth.instance;
   @override
@@ -28,65 +33,48 @@ class _LoginScreenState extends State<LoginScreen> {
                 margin: EdgeInsets.all(20),
                 child: Text("Selamat Datang!", style: TextStyle(fontSize: 25))),
             // Box Email
-            Container(
-              width: MediaQuery.of(context).size.width * 0.9,
-              margin: EdgeInsets.all(20),
-              // Isi
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Email Title
-                  Text(
-                    "Email Address",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                  ),
-                  // Email
-                  Container(
-                      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                      decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(25),
-                          border: Border.all()),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Email Address'),
-                        style: TextStyle(fontSize: 15),
-                        controller: contEmail,
-                      )),
-                ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: TextFormField(
+                key: ValueKey('email'),
+                decoration: InputDecoration(
+                  hintText: 'Enter Email',
+                ),
+                validator: (value) {
+                  if (value!.isEmpty || !value.contains('@')) {
+                    return 'Please Enter valid Email';
+                  } else {
+                    return null;
+                  }
+                },
+                onSaved: (value) {
+                  setState(() {
+                    contEmail = value!;
+                  });
+                },
               ),
             ),
             // Box Password
-            Container(
-              width: MediaQuery.of(context).size.width * 0.9,
-              margin: EdgeInsets.all(20),
-              // Isi
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Password Title
-                  Text(
-                    "Password",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                  ),
-                  // Password
-                  Container(
-                      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                      decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(25),
-                          border: Border.all()),
-                      child: TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Password'),
-                        style: TextStyle(fontSize: 15),
-                        controller: contPass,
-                      )),
-                ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: TextFormField(
+                key: ValueKey('password'),
+                obscureText: true,
+                decoration: InputDecoration(
+                  hintText: 'Enter Password',
+                ),
+                validator: (value) {
+                  if (value!.length < 6) {
+                    return 'Please Enter Password of min length 6';
+                  } else {
+                    return null;
+                  }
+                },
+                onSaved: (value) {
+                  setState(() {
+                    contPass = value!;
+                  });
+                },
               ),
             ),
             // Buttons
@@ -110,7 +98,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                       side: BorderSide(color: Colors.black)))),
                       onPressed: () {
                         setState(() {
-                          // Function Login
+                          if (_formKey.currentState!.validate()) {
+                            _formKey.currentState!.save();
+                            login
+                                ? AuthServices.signinUser(
+                                    contEmail, contPass, context)
+                                : AuthServices.signupUser(
+                                    contEmail, contPass, context);
+                          }
                         });
                       },
                       child: Text(

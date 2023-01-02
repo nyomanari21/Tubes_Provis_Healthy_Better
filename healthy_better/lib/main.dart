@@ -10,10 +10,20 @@ import 'package:healthy_better/view/home_screen.dart';
 import 'package:healthy_better/view/input_calories.dart';
 import 'package:healthy_better/view/profile.dart';
 import 'package:healthy_better/view/bottom_navigation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  if (FirebaseAuth.instance.currentUser?.uid == null) {
+// not logged
+    home:
+    LoginScreen();
+  } else {
+// logged
+    home:
+    BottomNavigation();
+  }
   runApp(const MyApp());
 }
 
