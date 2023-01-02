@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+  const RegisterScreen({Key? key}) : super(key: key);
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
 }
@@ -13,7 +13,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController contPass = new TextEditingController();
   TextEditingController contDoB = new TextEditingController();
 
-  FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -160,11 +159,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20),
                                       side: BorderSide(color: Colors.black)))),
-                      onPressed: () {
-                        setState(() {
-                          FirebaseAuth.instance.createUserWithEmailAndPassword(
-                              email: contEmail.text, password: contPass.text);
-                        });
+                      onPressed: () async {
+                        await FirebaseAuth.instance
+                            .createUserWithEmailAndPassword(
+                                email: contEmail.text, password: contPass.text);
                       },
                       child: Text(
                         "Register",

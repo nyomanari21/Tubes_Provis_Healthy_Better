@@ -156,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: const Text("Logout"),
                 onTap: () {
                   Future<void> _signOut() async {
-                    await FirebaseAuth.instance.signOut();
+                    FirebaseAuth.instance.signOut();
                   }
                 },
               ),

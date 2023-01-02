@@ -6,7 +6,7 @@ import 'package:healthy_better/services/functions/authFunctions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key}) : super(key: key);
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -26,7 +26,8 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         title: Text("Login"),
       ),
-      body: Center(
+      body: Form(
+        key: _formKey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -104,14 +105,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           login
                               ? AuthServices.signinUser(
                                   contEmail, contPass, context)
-                              : AuthServices.signupUser(
+                              : AuthServices.signinUser(
                                   contEmail, contPass, context);
                         }
                       },
-                      child: Text(
-                        "Login",
-                        style: TextStyle(color: Colors.black),
-                      ),
+                      child: Text(login ? 'Login' : 'signup'),
                     ),
                   ),
                   Container(
