@@ -48,30 +48,30 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(
               child: DrawerHeader(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // Photo
-                      Container(
-                        margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                        child: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                            "http://medialengka.com/profile.jpg",
-                          ),
-                          maxRadius: 45,
-                        ),
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Photo
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                    child: CircleAvatar(
+                      backgroundImage: NetworkImage(
+                        "http://medialengka.com/profile.jpg",
                       ),
-                      // Name
-                      Text(
-                        nama,
-                        style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                      ),
-                      // Email
-                      Text(
-                        email,
-                        style: TextStyle(fontSize: 10, color: Colors.grey),
-                      ),
-                    ],
-                  )),
+                      maxRadius: 45,
+                    ),
+                  ),
+                  // Name
+                  Text(
+                    nama,
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                  // Email
+                  Text(
+                    email,
+                    style: TextStyle(fontSize: 10, color: Colors.grey),
+                  ),
+                ],
+              )),
               color: Colors.white,
             ),
 
@@ -138,10 +138,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: ListTile(
                 title: const Text("Logout"),
-                onTap: () {
-                  Future<void> _signOut() async {
-                    await FirebaseAuth.instance.signOut();
-                  }
+                onTap: () async {
+                  await FirebaseAuth.instance.signOut();
                 },
               ),
             ),
@@ -245,7 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     // Text
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           "Base Goal",
@@ -273,7 +271,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     // Text
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           "Food",
@@ -301,7 +299,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     // Text
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           "Exercise",
@@ -384,7 +382,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     // Text
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           "Base Goal",
@@ -412,7 +410,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     // Text
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           "Food",
@@ -442,7 +440,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Container(
                 margin: EdgeInsets.all(10),
                 child: ElevatedButton(
-                  onPressed: (){
+                  onPressed: () {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
                       return UserProgress();
@@ -454,7 +452,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-
       ),
     );
   }
