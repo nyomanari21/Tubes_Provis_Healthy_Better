@@ -4,6 +4,7 @@ import 'package:healthy_better/view/login_screen.dart';
 import 'package:healthy_better/view/profile.dart';
 import 'package:healthy_better/view/user_progress.dart';
 import 'package:healthy_better/view/foods_screen.dart';
+import 'package:healthy_better/view/input_calories.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -447,6 +448,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     }));
                   },
                   child: Text("User Progress"),
+                ),
+              ),
+
+              // Button Input Calories
+              Container(
+                margin: EdgeInsets.all(10),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return InputCalories();
+                    }));
+                  },
+                  child: Text("Input Calories"),
                 ),
               ),
             ],
